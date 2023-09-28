@@ -25,6 +25,9 @@ VIDEO_STREAM=""
 VIDEO=""
 SOURCE_FLAG=""
 
+#Custom variables
+WEBCAM_NAME="Integrated Webcam for Work"
+
 #Print Center Banner
 center()
 {
@@ -170,7 +173,7 @@ init()
 
 	# Probing Kernel Modules
 	echo -e "[${YELLOW}~${NONE}] Trying To Probe ${CYAN}v4l2loopback${NONE}"
-	if ! sudo modprobe v4l2loopback card_label="My Fake Webcam" exclusive_caps=1; then
+	if ! sudo modprobe v4l2loopback card_label="${WEBCAM_NAME}" exclusive_caps=1; then
 		echo -e "[${RED}-${NONE}] Unable to probe ${RED}v4l2loopback${NONE} kernel module.${NONE}"
 		exit ;
 	fi
